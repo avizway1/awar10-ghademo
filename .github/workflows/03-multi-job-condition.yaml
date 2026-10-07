@@ -15,9 +15,9 @@ jobs:
                 echo "hello from Avinash"
                 echo "You are learning GHA"
 
-    run-on-test-branch-job:
+    run-on-main-branch-job:
         runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/test'
+        if: github.ref == 'refs/heads/main'
         steps:
             - name: run a single command
               run: echo "THis is from second job"
