@@ -1,0 +1,22 @@
+name: 02- Multiple jobs in a workflow
+
+on:
+    push:
+        branches: ["*"]
+
+jobs:
+    my-first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: run a single command
+              run: echo "Welcome to GHA Classes"
+            - name: run multiple commands in a step
+              run: |
+                echo "hello from Avinash"
+                echo "You are learning GHA"
+
+    my-second-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: run a single command
+              run: echo "THis is from second job"
