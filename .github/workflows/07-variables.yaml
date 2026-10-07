@@ -1,0 +1,22 @@
+name: 07- variables examples
+
+on: workflow_dispatch
+
+env:                                     #workflow level variable
+    NAME: Avinash
+
+jobs:
+    my-first-job:
+        runs-on: ubuntu-latest
+        env:                            #Job level variable
+            COURSE: GitHubActions
+        steps:
+            - name: Print the local file variables
+              env:
+                GREETING: Hello
+              run: echo "$GREETING, Am learning- $COURSE and My Name is $NAME"
+            - name: print the configuration variables               #Configuration variable
+              run: echo "My project name is ${{ vars.PROJECT_NAME }}"
+            - name: print the Context variables                     #Context variable
+              run: echo "My repo name is ${{ github.repository }} and Owner of this repo is ${{ github.repository_owner}} and run id is ${{ github.run_id}}"
+        
