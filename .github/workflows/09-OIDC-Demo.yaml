@@ -3,6 +3,7 @@ name: 09 - AWS Access using OIDC
 on:
     push:
         branches: ["*"]
+    workflow_dispatch:
 
 permissions:
     id-token: write
