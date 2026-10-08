@@ -1,0 +1,19 @@
+name: 11 - SSH and Deploy to EC2 instance
+
+on:
+    push:
+        branches: ["*"]
+
+jobs:
+    deploy-to-ec2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout the code
+              uses: actions/checkout@v7
+            - name: Setup SSH keys inside the runner
+              run: |
+                echo "${{ secrets.EC2_SSH_KEY }}" > awar11-na.pem
+                chmod 400 awar11-na.pem
+            - name: copy files to ec2 using SCP
+              run: |
+                sudo scp -o StrictHostKeyChecking=no -i awar11-na.pem -r * ${{ vars.EC2_USER_NAME }}@13.207.195.157:/var/www/html/
