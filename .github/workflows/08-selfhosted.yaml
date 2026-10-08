@@ -1,0 +1,19 @@
+name: 08 - testing selfhosted runner
+
+on:
+    push:
+        branches: ["*"]
+
+jobs:
+    node-test:
+        runs-on: self-hosted
+        steps:
+            - name: checkout the code
+              run: actions/checkout@v7
+            - name: run my application
+              run: node app.js
+            - name: Use IAM role and List buckets
+              run: |
+                aws s3 ls
+                aws s3 ls s3://avinash.aviz.27082026
+                aws s3 mb s3://avinash.gha.create.test
