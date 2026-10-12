@@ -39,7 +39,7 @@ jobs:
             - name: build, tag and push to ecr repository
               run: |
                 echo "Building Docker image"
-                docker build -t $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG .
+                docker build -t $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG python-app
 
                 echo "adding required tags"
                 docker tag $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPO:latest
