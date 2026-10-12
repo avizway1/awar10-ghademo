@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub Actions Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="card">
+        <h1>Hello from GitHub Actions 🚀</h1>
+        <p class="subtitle">Flask app served by Gunicorn</p>
+
+        <span class="badge env-{{ info.environment }}">{{ info.environment | upper }}</span>
+
+        <table>
+            <tr><th>Version</th><td>{{ info.version }}</td></tr>
+            <tr><th>Commit</th><td><code>{{ info.commit }}</code></td></tr>
+            <tr><th>Hostname</th><td>{{ info.hostname }}</td></tr>
+            <tr><th>Python</th><td>{{ info.python }}</td></tr>
+            <tr><th>Server time</th><td>{{ info.server_time }}</td></tr>
+        </table>
+
+        <p class="links">
+            <a href="/health">/health</a> · <a href="/api/info">/api/info</a>
+        </p>
+    </main>
+</body>
+</html>
