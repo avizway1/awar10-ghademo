@@ -24,7 +24,7 @@ jobs:
             - name: Configure AWS OIDC Credentials
               uses: aws-actions/configure-aws-credentials@v6.3.0
               with:
-                aws-region: ${{ secrets.AWS_REGION }}
+                aws-region: ${{ vars.AWS_REGION }}
                 role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
 
             - name: Login to ECR service
