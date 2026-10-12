@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-    ECR_REPO: avizghaecrapp
+    ECR_REPO: avizghaecrrepo
     IMAGE_TAG: ${{ github.sha }}
 
 jobs:
