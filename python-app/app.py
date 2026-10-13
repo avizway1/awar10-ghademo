@@ -14,14 +14,16 @@ APP_ENV = os.getenv("APP_ENV", "dev")
 
 
 def build_info():
-    """Details that change per deploy, so you can see your workflow's effect."""
+    """Details that change per deploy, to see your workflow's effect."""
     return {
         "version": APP_VERSION,
         "environment": APP_ENV,
         "hostname": socket.gethostname(),
         "python": platform.python_version(),
         "commit": os.getenv("GIT_SHA", "local")[:7],
-        "server_time": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "server_time": datetime.now(timezone.utc).strftime(
+            "%Y-%m-%d %H:%M:%S UTC"
+        ),
     }
 
 
