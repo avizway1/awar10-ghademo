@@ -29,7 +29,7 @@ jobs:
             - name: Run Trivy vulnerability scanner
               uses: aquasecurity/trivy-action@v0.36.0
               with:
-                image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/awar10awar10-gha-app:latest'
+                image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/awar10-gha-app:latest'
                 format: 'table'
                 exit-code: '0'
                 vuln-type: 'os,library'
