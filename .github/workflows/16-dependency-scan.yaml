@@ -1,0 +1,33 @@
+name: 16 - Dependencies scan for python code with pip-audit
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *" # run once a day at 4 AM
+
+jobs:
+    dependency-scan:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                python-version: [3.12]
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v7
+
+            - name: setup python 3.12
+              uses: actions/setup-python@v7
+              with:
+                python-version: '3.12'
+
+            - name: Install pip-audit
+              run: pip install pip-audit
+
+            - name: Audit dependencies for CVE
+              run: pip-audit -r python-app/requirements.txt
+            
+            - name: export result to json
+              run: pip-audit -f json
