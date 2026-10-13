@@ -44,4 +44,8 @@ def info():
 
 if __name__ == "__main__":
     # Local dev only; in production run via gunicorn (see gunicorn.conf.py)
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "5000")), debug=True)
+    app.run(
+        host=os.getenv("HOST", "127.0.0.1"),
+        port=int(os.getenv("PORT", "5000")),
+        debug=os.getenv("FLASK_DEBUG", "0") == "1",
+    )

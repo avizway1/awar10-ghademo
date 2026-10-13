@@ -1,7 +1,3 @@
-#trivy image nginx:latest (image scan)
-#trivy fs --scanners vuln,secret,misconfig ./my-project (local-file system scan)
-#trivy repo https://github.com (git repo scan)
-#trivy k8s --report summary cluster (k8s cluster scan)
 
 name: 17 - Docker image scan with Trivy
 
